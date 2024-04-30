@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["numCheque"])) {
         $objeto = $_POST['objeto'];
         // Corregido
 
-        $sql_insert = "INSERT INTO cheques (numero_cheque, fecha, beneficiario, monto, descripcion, codigo_objeto1) VALUES (?, ?, ?, ?, ?,?)";
+        $sql_insert = "INSERT INTO cheques (numero_cheque, fecha, beneficiario, monto, descripcion, codigo_objeto1,monto_objeto1) VALUES (?, ?, ?, ?, ?,?,?)";
         $stmt_insert = $conect->prepare($sql_insert);
         if ($stmt_insert) {
-            $stmt_insert->bind_param("ssssss", $numCheque, $fecha, $proveedores, $montoPagar,$descripcion,$objeto); // Corregido
+            $stmt_insert->bind_param("sssssss", $numCheque, $fecha, $proveedores, $montoPagar,$descripcion,$objeto,$montoPagar); // Corregido
             $stmt_insert->execute();
 
             if ($stmt_insert->affected_rows > 0) {
