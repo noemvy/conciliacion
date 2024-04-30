@@ -1,10 +1,14 @@
+
+
+//Funcion para validar si el cheque existe o no en tiempo real con AJAX
 function verificarCheque(numCheque) {
     console.log(numCheque);
-    // Verificar si el número de cheque tiene al menos 3 dígitos
+    
+    //Se realiza la validacion solo si el numero de cheque ingresado es de longitud de 3
     if (numCheque.length < 3) {
         return; // No se realiza la verificación
     }
-
+    //Validar con AJAX la existencia del cheque
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -29,7 +33,7 @@ function verificarCheque(numCheque) {
             }
         }
     };
-    xhttp.open("POST", "../conexionPhp/consultaCK.php", true);
+    xhttp.open("POST", "../consultas/chequeConsultas.php", true);    //Archivo de consultas de cheque
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("numCheque=" + numCheque);
 }
@@ -37,20 +41,17 @@ function verificarCheque(numCheque) {
 // Función para restablecer los campos del formulario
 function resetearCampos() {
     document.getElementById("chequeForm").reset();
-    document.getElementById("mensajeCheque").innerText = ""; // Restablecer el mensaje de cheque
+    document.getElementById("mensajeCheque").innerText = "";
     document.getElementById("fecha").disabled = false; 
     document.getElementById("proveedores").disabled = false;
     document.getElementById("montoPagar").disabled = false;
     document.getElementById("descripcion").disabled = false;
     document.getElementById("objeto").disabled = false;
     document.getElementById("grabarCheque").disabled = false;
-
-
-    document.getElementById("grabarCheque").disabled= false;// Habilitar el campo de fecha
 }
 
 
-
+//Funcion para pasar el monto a montoObjeto
 function pasarMonto (){
     var montoPagar = document.getElementById("montoPagar");
     var montoObjeto = document.getElementById("montoObjeto");
