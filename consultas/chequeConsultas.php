@@ -1,6 +1,6 @@
 
 <?php
-include('../conexion/conciliacion.php');
+include("../conexion/conciliacion.php");
 
 $tablaProveedores = mysqli_query($conect, "SELECT * FROM proveedores");
 $objetoGasto = mysqli_query($conect, "SELECT*FROM objeto_gasto");
