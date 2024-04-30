@@ -1,0 +1,47 @@
+<?php  include "../consultas/anulacionConsulta.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anulacion Cheques</title>
+</head>
+
+<body>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <div id="Anulacion">
+            <label>N° de Cheque</label>
+            <input type="text" name="numero_cheque" id="numero_cheque"value="<?php  echo $numero_cheque?>">
+            <button type="submit" name="buscar">Buscar</button><br>
+
+            
+            <label for="fecha">Fecha</label><br>
+            <input type="date" id="fechaCheque" name="fechaCheque " disabled value="<?php echo $fechaCheque ?>"><br>
+            
+
+            <label for="paguese">Páguese a la orden de:</label>
+            <input type="text" id="pagueseALaOrden" name="pagueseALaOrden" disabled
+                value="<?php echo $proveedorNombre ?>"><br>
+
+            <label for="monto">Monto</label>
+            <input type="text" name="monto" id="monto" disabled value="<?php echo $monto ?>"><br>
+
+            <label for="descripcion">Descripción de Gasto</label><br>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="10"
+                disabled><?php echo $descripcion ?></textarea> <br>
+
+            <label for= "fechaAnulado">Fecha de Anulacion</label>
+            <input type="date" name="fechaAnulado" id="fechaAnulado"  value ="<?php  echo $fechaAnulado ?>"><br>
+
+            <label for="detalleAnulado">Detalle de Anulacion</label> <br>
+            <textarea name="detalleAnulado" id="detalleAnulado" cols="30" rows="10"><?php echo $detalleAnulado ?></textarea>    
+            
+            <button type="submit" name="anular" <?php echo $disabledAnular; ?>>Anular</button><br>
+
+
+        </div>
+    </form>
+</body>
+
+</html>
