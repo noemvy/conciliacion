@@ -6,7 +6,7 @@
     <title>PRUEBA CHEQUE</title>
     <script src="../conexionPhp/prueba.js" ></script>
 </head>
-<body>
+<body  onload="pasarMonto()">
     <h1>CHEQUE PRUEBA </h1>
     <form method="post" id="chequeForm">
         <label for="numCheque">Número de Cheque:</label>
@@ -46,6 +46,9 @@
     }
     ?>
         </select><br>
+
+        <label for="montoObjeto">Monto Objeto:</label><br>
+        <input type="text" id="montoObjeto" name ="montoObjeto" disabled>
 
         <button type="submit" id="grabarCheque" name="grabarCheque" >Grabar</button>
         <!-- Botón para restablecer los campos -->
