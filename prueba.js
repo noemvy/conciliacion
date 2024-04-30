@@ -39,5 +39,24 @@ function resetearCampos() {
     document.getElementById("chequeForm").reset();
     document.getElementById("mensajeCheque").innerText = ""; // Restablecer el mensaje de cheque
     document.getElementById("fecha").disabled = false; 
+    document.getElementById("proveedores").disabled = false;
+    document.getElementById("montoPagar").disabled = false;
+    document.getElementById("descripcion").disabled = false;
+    document.getElementById("objeto").disabled = false;
+    document.getElementById("grabarCheque").disabled = false;
+
+
     document.getElementById("grabarCheque").disabled= false;// Habilitar el campo de fecha
+}
+
+
+
+function pasarMonto (){
+    var montoPagar = document.getElementById("montoPagar");
+    var montoObjeto = document.getElementById("montoObjeto");
+
+    montoPagar.addEventListener("input",function(){
+        montoObjeto.value = montoPagar.value;
+    });
+
 }
